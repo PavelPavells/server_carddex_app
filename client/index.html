@@ -8,6 +8,17 @@
     <title>Server</title>
 </head>
 <body>
-    <div class="wrapper">Basic server</div>
+    <div id="wrapper">Basic server</div>
+    <script>
+        const url = "/api/bolid";
+        fetch(url)
+                .then(response => {
+                    response.text()
+                })
+                .then(text => {
+                    wrapper.textContent = text;
+                })
+                .catch(err => console.log(err))
+    </script>
 </body>
 </html>
