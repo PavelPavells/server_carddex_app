@@ -4,11 +4,13 @@ const bolid = require("./routes/api/bolid");
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 app.get('/', (req, res) => {
-    res.status(200).send("Сервер успешно загружен, добавьте '/bolid' в адресную строку и нажмите Enter, чтобы обрабатывать запросы.");
-})
-app.get('/', (req, res) => {
-    throw new Error('oops')
+    try {
+        res.status(200).sendFile(__dirname + '/client/index.html');
+    } catch (error) {
+        throw new Error(error)
+    }
 })
 app.use((err, req, res, next) => {
     console.log(err)

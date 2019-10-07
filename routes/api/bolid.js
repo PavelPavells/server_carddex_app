@@ -32,5 +32,6 @@ router.post("/bolid", (req, res, next) => {
                 "person": req.body.person
             });
     console.log(req.body);
+    next();
  });
  module.exports = router;
